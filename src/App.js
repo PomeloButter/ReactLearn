@@ -20,7 +20,9 @@ class App extends Component {
           >
             Learn React
           </a>
-         <Person/>
+         <Person name="Pomelobutter" count="30"/>
+         <Person name="Yuuko" count="20"/>
+         <Person name="Jesse" count="10">大家好，一起来学习React吧</Person>
         </header>
     
       </div>

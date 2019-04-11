@@ -12,12 +12,12 @@ state={
   ]
 }
 
-switchNameHander=()=>{
+switchNameHander=(newName)=>{
   // alert(123);
 
   this.setState({
     Persons: [
-      { name:"QQ1",count:1231},
+      { name:newName,count:1231},
       { name:"wechat1",count:2131},
       { name:"sina1",count:3211},
     ]
@@ -40,9 +40,10 @@ switchNameHander=()=>{
           >
             Learn React
           </a>
-          <button onClick={this.switchNameHander}>更改状态</button>
-         <Person name={this.state.Persons[0].name} count={this.state.Persons[0].count}/>
-         <Person name={this.state.Persons[1].name} count={this.state.Persons[1].count}/>
+          <button onClick={this.switchNameHander.bind(this,"Pomelobutter")}>更改状态</button>
+        
+         <Person  name={this.state.Persons[0].name} count={this.state.Persons[0].count}/>
+         <Person secondOnclick={this.switchNameHander.bind(this,"hhhhh")} name={this.state.Persons[1].name} count={this.state.Persons[1].count}/>
          <Person name={this.state.Persons[2].name} count={this.state.Persons[2].count}>大家好，一起来学习React吧</Person>
         </header>
     

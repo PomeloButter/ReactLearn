@@ -34,6 +34,10 @@ changedHander=(event)=>{
 } 
 
   render() {
+       const style={
+        backgroundColor:'blue',
+        border: 'solid 1px',
+       };
     return (
       <div className="App">
         <header className="App-header">
@@ -49,7 +53,7 @@ changedHander=(event)=>{
           >
             Learn React
           </a>
-          <button onClick={this.switchNameHander.bind(this,"Pomelobutter")}>更改状态</button>
+          <button style={style} onClick={this.switchNameHander.bind(this,"Pomelobutter")}>更改状态</button>
         
          <Person changed={this.changedHander} name={this.state.Persons[0].name} count={this.state.Persons[0].count}/>
          <Person secondOnclick={this.switchNameHander.bind(this,"hhhhh")} name={this.state.Persons[1].name} count={this.state.Persons[1].count}/>

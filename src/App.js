@@ -9,7 +9,8 @@ state={
     { name:"QQ",count:123},
     { name:"wechat",count:213},
     { name:"sina",count:321},
-  ]
+  ],
+  PersonState:false
 }
 
 switchNameHander=(newName)=>{
@@ -32,8 +33,25 @@ changedHander=(event)=>{
     ]
   })
 } 
-
+togglehander=()=>{
+  const isShow=this.state.PersonState;
+  this.setState({
+    PersonState:!isShow
+  });
+};
   render() {
+ 
+     let persons=null;
+     if (this.state.PersonState) {
+        persons=(  
+        <div>
+          <Person changed={this.changedHander} name={this.state.Persons[0].name} count={this.state.Persons[0].count}/>
+          <Person changed={this.changedHander} name={this.state.Persons[0].name} count={this.state.Persons[0].count}/>
+          <Person secondOnclick={this.switchNameHander.bind(this,"hhhhh")} name={this.state.Persons[1].name} count={this.state.Persons[1].count}/>
+          <Person name={this.state.Persons[2].name} count={this.state.Persons[2].count}>大家好，一起来学习React吧</Person>
+        </div>
+        );             
+     }
        const style={
         backgroundColor:'blue',
         border: 'solid 1px',
@@ -53,11 +71,9 @@ changedHander=(event)=>{
           >
             Learn React
           </a>
-          <button style={style} onClick={this.switchNameHander.bind(this,"Pomelobutter")}>更改状态</button>
-        
-         <Person changed={this.changedHander} name={this.state.Persons[0].name} count={this.state.Persons[0].count}/>
-         <Person secondOnclick={this.switchNameHander.bind(this,"hhhhh")} name={this.state.Persons[1].name} count={this.state.Persons[1].count}/>
-         <Person name={this.state.Persons[2].name} count={this.state.Persons[2].count}>大家好，一起来学习React吧</Person>
+          {/* <button style={style} onClick={this.switchNameHander.bind(this,"Pomelobutter")}>更改状态</button> */}
+          <button style={style} onClick={this.togglehander}>更改状态</button>       
+         {persons}
         </header>
     
       </div>
